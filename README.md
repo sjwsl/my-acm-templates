@@ -6,10 +6,10 @@ Enviroment : Texstudio in Windows/Mac/Linux
 
 
 
-### 1. Clone and Add your own code to any directory such as `acm-templates/Graph`
+### 1. Clone and Add your own code to any directory such as `Graph`
 
 
-### 2. Make some easy changes in `acm-templates/acm-templates.tex`
+### 2. Make some easy changes in `acm-templates.tex`
 
    Just read the file to understand code logic and imitate it
    
