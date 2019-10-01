@@ -17,7 +17,7 @@ Enviroment : Texstudio in Windows/Mac/Linux
 
 ### 3. Generate PDF
 
-   Use xelatex to generate PDF
+   Use `xelatex` to generate PDF
 
    Add -shell-escape to the xelatex complilation options in `Preference/Commands`
  
