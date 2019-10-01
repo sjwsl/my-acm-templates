@@ -2,7 +2,7 @@
 
 Use Latax to generate your own acm templates 
 
-Enviroment : Texstudio in Windows/Mac/Linux
+Enviroment : *Texstudio* in Windows/Mac/Linux
 
 
 
