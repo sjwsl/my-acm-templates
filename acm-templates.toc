@@ -18,4 +18,4 @@
 \contentsline {subsection}{\numberline {4.5}杜教筛}{33}{subsection.4.5}% 
 \contentsline {subsection}{\numberline {4.6}线性基}{36}{subsection.4.6}% 
 \contentsline {section}{\numberline {5}杂项}{40}{section.5}% 
-\contentsline {section}{\numberline {6}计算几何}{41}{section.6}% 
+\contentsline {section}{\numberline {6}计算几何}{44}{section.6}% 
