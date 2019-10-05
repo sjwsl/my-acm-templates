@@ -1,2 +1,7 @@
 *.aux
 *.log
+*.toc
+*.gz
+*.out
+/.idea/
+/_minted-acm-templates/
