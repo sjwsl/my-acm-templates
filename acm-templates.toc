@@ -17,5 +17,7 @@
 \contentsline {subsection}{\numberline {4.4}BM}{25}{subsection.4.4}% 
 \contentsline {subsection}{\numberline {4.5}杜教筛}{33}{subsection.4.5}% 
 \contentsline {subsection}{\numberline {4.6}线性基}{36}{subsection.4.6}% 
-\contentsline {section}{\numberline {5}杂项}{40}{section.5}% 
-\contentsline {section}{\numberline {6}计算几何}{44}{section.6}% 
+\contentsline {subsection}{\numberline {4.7}原根}{39}{subsection.4.7}% 
+\contentsline {subsection}{\numberline {4.8}欧拉降幂}{41}{subsection.4.8}% 
+\contentsline {section}{\numberline {5}杂项}{44}{section.5}% 
+\contentsline {section}{\numberline {6}计算几何}{48}{section.6}% 
