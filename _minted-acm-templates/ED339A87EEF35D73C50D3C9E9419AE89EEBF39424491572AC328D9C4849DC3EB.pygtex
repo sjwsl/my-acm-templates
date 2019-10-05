@@ -1,0 +1,51 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//cnt[i]表示节点i表示的本质不同的串的个数（建树时求出的不是完全的，最后count()函数跑一遍以后才是正确的）}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{using} \PYG{k}{namespace} \PYG{n}{std}\PYG{p}{;}
+\PYG{k}{const} \PYG{k+kt}{int} \PYG{n}{maxa}\PYG{o}{=}\PYG{l+m+mf}{2e5}\PYG{o}{+}\PYG{l+m+mi}{20}\PYG{p}{,}\PYG{n}{cha}\PYG{o}{=}\PYG{l+m+mi}{30}\PYG{p}{,}\PYG{n}{MAXN}\PYG{o}{=}\PYG{l+m+mf}{1e6}\PYG{o}{+}\PYG{l+m+mi}{20}\PYG{p}{;}\PYG{c+c1}{//maxa 字符串最长长度，cha 字符集大小 }
+\PYG{k}{typedef} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n}{ll}\PYG{p}{;}
+\PYG{k}{struct} \PYG{n}{SAM}\PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{cnt}\PYG{p}{,}\PYG{n}{las}\PYG{p}{,}\PYG{n}{root}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{][}\PYG{l+m+mi}{30}\PYG{p}{],}\PYG{n}{fa}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{],}\PYG{n}{len}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{];}
+      
+    \PYG{k+kr}{inline} \PYG{k+kt}{void} \PYG{n+nf}{init}\PYG{p}{()\PYGZob{}}\PYG{n}{root} \PYG{o}{=} \PYG{n}{las} \PYG{o}{=} \PYG{o}{++}\PYG{n}{cnt}\PYG{p}{;\PYGZcb{}}
+      
+    \PYG{k+kr}{inline} \PYG{k+kt}{void} \PYG{n+nf}{insert}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{p} \PYG{o}{=} \PYG{n}{las}\PYG{p}{;}
+        \PYG{k+kt}{int} \PYG{n}{np} \PYG{o}{=} \PYG{n}{las} \PYG{o}{=} \PYG{o}{++}\PYG{n}{cnt}\PYG{p}{;}
+        \PYG{n}{len}\PYG{p}{[}\PYG{n}{np}\PYG{p}{]} \PYG{o}{=} \PYG{n}{len}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+        \PYG{k}{for}\PYG{p}{(;}\PYG{n}{p} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{p}\PYG{p}{][}\PYG{n}{x}\PYG{p}{];}\PYG{n}{p} \PYG{o}{=} \PYG{n}{fa}\PYG{p}{[}\PYG{n}{p}\PYG{p}{])} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{p}\PYG{p}{][}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{p}{;}
+        \PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{p}\PYG{p}{)} \PYG{n}{fa}\PYG{p}{[}\PYG{n}{np}\PYG{p}{]} \PYG{o}{=} \PYG{n}{root}\PYG{p}{;}
+        \PYG{k}{else}\PYG{p}{\PYGZob{}}
+            \PYG{k+kt}{int} \PYG{n}{q} \PYG{o}{=} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{p}\PYG{p}{][}\PYG{n}{x}\PYG{p}{];}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{len}\PYG{p}{[}\PYG{n}{q}\PYG{p}{]} \PYG{o}{==} \PYG{n}{len}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{fa}\PYG{p}{[}\PYG{n}{np}\PYG{p}{]} \PYG{o}{=} \PYG{n}{q}\PYG{p}{;}
+            \PYG{k}{else} \PYG{p}{\PYGZob{}}
+                \PYG{k+kt}{int} \PYG{n}{nq} \PYG{o}{=} \PYG{o}{++}\PYG{n}{cnt}\PYG{p}{;}
+                \PYG{n}{fa}\PYG{p}{[}\PYG{n}{nq}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fa}\PYG{p}{[}\PYG{n}{q}\PYG{p}{];}\PYG{n}{fa}\PYG{p}{[}\PYG{n}{q}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fa}\PYG{p}{[}\PYG{n}{np}\PYG{p}{]} \PYG{o}{=} \PYG{n}{nq}\PYG{p}{;}
+                \PYG{n}{memcpy}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{nq}\PYG{p}{],}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{q}\PYG{p}{],}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{ch}\PYG{p}{[}\PYG{n}{nq}\PYG{p}{]));}
+                \PYG{n}{len}\PYG{p}{[}\PYG{n}{nq}\PYG{p}{]} \PYG{o}{=} \PYG{n}{len}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{;}
+                \PYG{k}{for}\PYG{p}{(;}\PYG{n}{p} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{p}\PYG{p}{][}\PYG{n}{x}\PYG{p}{]} \PYG{o}{==} \PYG{n}{q}\PYG{p}{;}\PYG{n}{p} \PYG{o}{=} \PYG{n}{fa}\PYG{p}{[}\PYG{n}{p}\PYG{p}{])} \PYG{n}{ch}\PYG{p}{[}\PYG{n}{p}\PYG{p}{][}\PYG{n}{x}\PYG{p}{]} \PYG{o}{=} \PYG{n}{nq}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kr}{inline} \PYG{k+kt}{long} \PYG{k+kt}{long} \PYG{n+nf}{sum}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{len}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{len}\PYG{p}{[}\PYG{n}{fa}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]];}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}\PYG{n}{T}\PYG{p}{;}
+\PYG{k+kt}{char} \PYG{n}{str}\PYG{p}{[}\PYG{n}{maxa}\PYG{p}{];}
+\PYG{n}{ll} \PYG{n}{ans}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}s\PYGZdq{}}\PYG{p}{,}\PYG{n}{str}\PYG{p}{);}
+    \PYG{k+kt}{int} \PYG{n}{len}\PYG{o}{=}\PYG{n}{strlen}\PYG{p}{(}\PYG{n}{str}\PYG{p}{);}
+     
+    \PYG{n}{ll} \PYG{n}{ans}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{T}\PYG{p}{.}\PYG{n}{init}\PYG{p}{();}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{len}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{n}{T}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{str}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+s+sc}{\PYGZsq{}a\PYGZsq{}}\PYG{p}{);}
+    \PYG{n}{T}\PYG{p}{.}\PYG{n}{las} \PYG{o}{=} \PYG{n}{T}\PYG{p}{.}\PYG{n}{root}\PYG{p}{;}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{len}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i} \PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{n}{T}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{str}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{l+s+sc}{\PYGZsq{}a\PYGZsq{}}\PYG{p}{);}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{T}\PYG{p}{.}\PYG{n}{cnt}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{n}{ans} \PYG{o}{=} \PYG{n}{ans} \PYG{o}{+} \PYG{n}{T}\PYG{p}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

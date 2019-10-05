@@ -6,7 +6,9 @@
 \usepackage{minted} 
 \usepackage[colorlinks,
 linkcolor=black,CJKbookmarks,
-]{hyperref} 
+]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \setlength{\headheight}{15pt}
 \pagestyle{fancy}
 \fancyhf{}
@@ -31,26 +33,25 @@ linkcolor=black,CJKbookmarks,
 \newpage
 \section{图论} % 一级标题
 
-\subsection{树}% 二级标题
+\subsection{dijstra}
+\inputminted[breaklines]{c++}{Graph/dijstra.cpp}
 
-\subsubsection{倍增LCA}%三级标题
+\subsection{倍增LCA}%三级标题
 \inputminted[breaklines]{c++}{Graph/lca.cpp}
 
-\subsubsection{树上路径交}
+\subsection{树上路径交}
 \inputminted[breaklines]{c++}{Graph/shushanglujingjiao.cpp}
 
-\subsubsection{树链剖分}
+\subsection{树链剖分}
 \inputminted[breaklines]{c++}{Graph/shulianpofen.cpp}
 
-\subsubsection{点分治}
+\subsection{点分治}
 \inputminted[breaklines]{c++}{Graph/dianfenzhi.cpp}
 
-\subsection{连通性}
-
-\subsubsection{强连通分量}
+\subsection{强连通分量}
 \inputminted[breaklines]{c++}{Graph/scc.cpp}
 
-\subsubsection{双连通分量}
+\subsection{双连通分量}
 \inputminted[breaklines]{c++}{Graph/bcc.cpp}
 
 %\twocolumn  分栏
@@ -63,9 +64,11 @@ linkcolor=black,CJKbookmarks,
 \newpage
 \section{字符串}
 
+\subsection{回文树}
+\inputminted[breaklines]{c++}{String/pam.cpp}
 
-
-
+\subsection{广义后缀自动机}
+\inputminted[breaklines]{c++}{String/sam.cpp}
 
 
 
