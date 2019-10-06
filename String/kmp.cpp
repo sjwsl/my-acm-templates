@@ -36,6 +36,7 @@ void kmp(int nxt[], int n, int s[], int m, int t[]) {
  * poj2752
  * 求字符串的所有相等前后缀
  */
+
 #include<cstdio>
 #include<cstring>
 #include <vector>
@@ -75,3 +76,50 @@ int main() {
     }
 }
 
+//
+// 求num数组 num[i]表示有s[0 - i-1]有多少不重叠的相等前后缀
+// Created by 徐天舒 on 2019/10/6.
+//
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int maxn = 1e6 + 7;
+const int mod = 1e9 + 7;
+
+int nxt[maxn], len, dep[maxn], mem[maxn], ans = 1;
+char s[maxn];
+
+void kmp_pre(int nxt[], int m, char t[]) {
+    int i, j;
+    j = nxt[0] = -1;
+    i = 0;
+    while (i < m) {
+        while (-1 != j && t[i] != t[j])j = nxt[j];
+        nxt[++i] = ++j;
+        dep[i] = dep[j] + 1;
+    }
+}
+
+int main() {
+    int t;
+    scanf("%d", &t);
+    while (t--) {
+        scanf("%s", s);
+        memset(mem, -1, sizeof(mem));
+        int len = strlen(s);
+        kmp_pre(nxt, len, s);
+        ans = 1;
+
+        int j = 0;
+
+        for (int i = 1; i < len; i++) {
+            while (j != -1 && s[j] != s[i])j = nxt[j];
+            j++;
+            while (j * 2 > i + 1)j = nxt[j];
+            ans = 1LL * ans * (dep[j] + 1) % mod;
+        }
+        printf("%d\n", ans);
+    }
+}
