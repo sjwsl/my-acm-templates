@@ -5,3 +5,5 @@
 *.out
 /.idea/
 /_minted-acm-templates/
+.DS_Store
+
