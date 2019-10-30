@@ -6,4 +6,5 @@
 /.idea/
 /_minted-acm-templates/
 .DS_Store
-
+*.xml
+*.iml
