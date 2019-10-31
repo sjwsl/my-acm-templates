@@ -1,10 +1,10 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage[UTF8]{ctex}
 \usepackage{pdfpages}
-\usepackage{zh_CN-Adobefonts_external} 
+\usepackage{zh_CN-Adobefonts_external}
 \usepackage{geometry}
-\usepackage{fancyhdr} 
-\usepackage{minted} 
+\usepackage{fancyhdr}
+\usepackage{minted}
 \usepackage[colorlinks,
 linkcolor=black,CJKbookmarks,
 ]{hyperref}
@@ -18,78 +18,88 @@ linkcolor=black,CJKbookmarks,
 \cfoot{\thepage}
 \rfoot{}
 
-\author{XTS}   
+\author{XTS}
 \title{ACM Templates}
 \hyphenpenalty=500000
 \tolerance=10
 \geometry{a4paper,left=2cm,right=2cm,top=3cm,bottom=3cm}
-\begin{document} 
-\maketitle 
-\newpage
-\tableofcontents
+\begin{document}
+    \maketitle
+    \newpage
+    \tableofcontents
 
 
 
 
-\newpage
-\section{图论} % 一级标题
+    \newpage
+    \section{图论} % 一级标题
 
-\subsection{dijstra}
-\inputminted[breaklines]{c++}{Graph/dijstra.cpp}
+    \subsection{dijstra}
+    \inputminted[breaklines]{c++}{Graph/dijstra.cpp}
 
-\subsection{倍增LCA}%三级标题
-\inputminted[breaklines]{c++}{Graph/lca.cpp}
+    \subsection{倍增LCA}%三级标题
+    \inputminted[breaklines]{c++}{Graph/lca.cpp}
 
-\subsection{树上路径交}
-\inputminted[breaklines]{c++}{Graph/树上路径交.cpp}
+    \subsection{树上路径交}
+    \inputminted[breaklines]{c++}{Graph/树上路径交.cpp}
 
-\subsection{树链剖分}
-\inputminted[breaklines]{c++}{Graph/树链剖分.cpp}
+    \subsection{树链剖分}
+    \inputminted[breaklines]{c++}{Graph/树链剖分.cpp}
 
-\subsection{点分治}
-\inputminted[breaklines]{c++}{Graph/点分治.cpp}
+    \subsection{点分治}
+    \inputminted[breaklines]{c++}{Graph/点分治.cpp}
 
-\subsection{强连通分量}
-\inputminted[breaklines]{c++}{Graph/scc.cpp}
+    \subsection{强连通分量}
+    \inputminted[breaklines]{c++}{Graph/scc.cpp}
 
-\subsection{双连通分量}
-\inputminted[breaklines]{c++}{Graph/bcc.cpp}
+    \subsection{双连通分量}
+    \inputminted[breaklines]{c++}{Graph/bcc.cpp}
 
-\subsection{仙人掌求环}
-\inputminted[breaklines]{c++}{Graph/仙人掌求环.cpp}
+    \subsection{仙人掌求环}
+    \inputminted[breaklines]{c++}{Graph/仙人掌求环.cpp}
 
-\subsection{dfs判负环}
-\inputminted[breaklines]{c++}{Graph/dfs判负环.cpp}
+    \subsection{dfs判负环}
+    \inputminted[breaklines]{c++}{Graph/dfs判负环.cpp}
 
-\subsection{斯坦纳树}
-\inputminted[breaklines]{c++}{Graph/斯坦纳树.cpp}
+    \subsection{斯坦纳树}
+    \inputminted[breaklines]{c++}{Graph/斯坦纳树.cpp}
 
-\subsection{二分图最大权匹配}
-\inputminted[breaklines]{c++}{Graph/KM.cpp}
+    \subsection{二分图最大权匹配}
+    \inputminted[breaklines]{c++}{Graph/KM.cpp}
 
-%\twocolumn  分栏
+    \subsection{最大流}
+    \inputminted[breaklines]{c++}{Graph/Dinic.cpp}
 
+    \subsection{最小割树}
+    \inputminted[breaklines]{c++}{Graph/最小割树.cpp}
+    
+    \subsection{网络流的一些结论}
+	\begin{document}
+		fsa\\dasdsa\\\sdadsad\\
+		
+	\end{document}
+    %\twocolumn  分栏
 
 
 
 
 
-\newpage
-\section{字符串}
 
-\subsection{回文树}
-\inputminted[breaklines]{c++}{String/pam.cpp}
+    \newpage
+    \section{字符串}
 
-\subsection{广义后缀自动机}
-\inputminted[breaklines]{c++}{String/sam.cpp}
+    \subsection{回文树}
+    \inputminted[breaklines]{c++}{String/pam.cpp}
 
-\subsection{kmp}
-\inputminted[breaklines]{c++}{String/kmp.cpp}
+    \subsection{广义后缀自动机}
+    \inputminted[breaklines]{c++}{String/sam.cpp}
 
+    \subsection{kmp}
+    \inputminted[breaklines]{c++}{String/kmp.cpp}
 
-\newpage
-\section{数据结构}
 
+    \newpage
+    \section{数据结构}
 
 
 
@@ -100,79 +110,75 @@ linkcolor=black,CJKbookmarks,
 
 
 
-\newpage
-\section{数学} % 一级标题
 
-\subsection{带预处理BGSG}
-\inputminted[breaklines]{c++}{Math/BGSG.cpp}
+    \newpage
+    \section{数学} % 一级标题
 
-\subsection{十进制矩阵快速幂}
-\inputminted[breaklines]{c++}{Math/快速幂.cpp}
+    \subsection{带预处理BGSG}
+    \inputminted[breaklines]{c++}{Math/BGSG.cpp}
 
-\subsection{exlucas}
-\inputminted[breaklines]{c++}{Math/exlucas.cpp}
+    \subsection{十进制矩阵快速幂}
+    \inputminted[breaklines]{c++}{Math/快速幂.cpp}
 
-\subsection{BM}
-\inputminted[breaklines]{c++}{Math/BM.cpp}
+    \subsection{exlucas}
+    \inputminted[breaklines]{c++}{Math/exlucas.cpp}
 
-\subsection{杜教筛}
-\inputminted[breaklines]{c++}{Math/杜教筛.cpp}
+    \subsection{BM}
+    \inputminted[breaklines]{c++}{Math/BM.cpp}
 
-\subsection{线性基}
-\inputminted[breaklines]{c++}{Math/线性基.cpp}
+    \subsection{杜教筛}
+    \inputminted[breaklines]{c++}{Math/杜教筛.cpp}
 
-\subsection{原根}
-\includepdf[pages={1}]{Math/原根.pdf}
+    \subsection{线性基}
+    \inputminted[breaklines]{c++}{Math/线性基.cpp}
 
-\subsection{欧拉降幂}
-\inputminted[breaklines]{c++}{Math/欧拉降幂.cpp}
+    \subsection{原根}
+    \includepdf[pages={1}]{Math/原根.pdf}
 
-\subsection{拉格朗日插值}
-\includepdf[pages={1,2}]{Math/拉格朗日插值.pdf}
+    \subsection{欧拉降幂}
+    \inputminted[breaklines]{c++}{Math/欧拉降幂.cpp}
 
-\subsection{伯努利数}
-\includepdf[pages={1,2}]{Math/伯努利数.pdf}
+    \subsection{拉格朗日插值}
+    \includepdf[pages={1,2}]{Math/拉格朗日插值.pdf}
 
-\subsection{FFTNTTFWT}
-\includepdf[pages={1,2,3,4,5,6}]{Math/FFTNTTFWT.pdf}
+    \subsection{伯努利数}
+    \includepdf[pages={1,2}]{Math/伯努利数.pdf}
 
+    \subsection{FFTNTTFWT}
+    \includepdf[pages={1,2,3,4,5,6}]{Math/FFTNTTFWT.pdf}
 
-\newpage
-\section{杂项}
 
-\subsection{约瑟夫问题}
-\includepdf[pages={1,2,3}]{Others/约瑟夫问题.pdf}
+    \newpage
+    \section{杂项}
 
-\subsection{RSA}
-\includepdf[pages={1}]{Others/RSA.pdf}
+    \subsection{约瑟夫问题}
+    \includepdf[pages={1,2,3}]{Others/约瑟夫问题.pdf}
 
-\subsection{快速读}
-\inputminted[breaklines]{c++}{Others/quick_IO.cpp}
+    \subsection{RSA}
+    \includepdf[pages={1}]{Others/RSA.pdf}
 
-\subsection{并没有任何用处的卡常小知识}
-\inputminted[breaklines]{c++}{Others/并没有任何用处的卡常小知识.cpp}
+    \subsection{快速读}
+    \inputminted[breaklines]{c++}{Others/quick_IO.cpp}
 
-\subsection{杂杂杂项}
-\includepdf[pages={1,2,3,4,5,6,7}]{Others/推导用.pdf}
+    \subsection{并没有任何用处的卡常小知识}
+    \inputminted[breaklines]{c++}{Others/并没有任何用处的卡常小知识.cpp}
 
-\subsection{pbds}
-\includepdf[pages={1-14}]{Others/pbds.pdf}
+    \subsection{杂杂杂项}
+    \includepdf[pages={1,2,3,4,5,6,7}]{Others/推导用.pdf}
 
+    \subsection{pbds}
+    \includepdf[pages={1-14}]{Others/pbds.pdf}
 
 
 
 
-\newpage
-\section{计算几何}
 
+    \newpage
+    \section{计算几何}
 
 
-
-
-
-
-%\newpage
-%\section{Others}
+    %\newpage
+    %\section{Others}
 
 \end{document}
 
