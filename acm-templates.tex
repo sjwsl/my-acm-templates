@@ -63,6 +63,9 @@ linkcolor=black,CJKbookmarks,
 
     \subsection{斯坦纳树}
     \inputminted[breaklines]{c++}{Graph/斯坦纳树.cpp}
+    
+    \subsection{二分图最大匹配}
+    \inputminted[breaklines]{c++}{Graph/二分图最大匹配.cpp}
 
     \subsection{二分图最大权匹配}
     \inputminted[breaklines]{c++}{Graph/KM.cpp}
@@ -135,7 +138,15 @@ linkcolor=black,CJKbookmarks,
 	带点权的有向图的最大子图，使得子图中所有点的出边都指向子图内的点。
 	
 	正权点连S流量为点权，负权点连T流量为点权的绝对值，原图的边流量为INF，跑最大流，正权点和减去最大流即为答案。S集中的点形成了最大闭合子图。
-    %\twocolumn  分栏
+    
+    \paragraph{DAG最少路径覆盖}
+    找出最少的路径，使得这些路径经过了所有的点。
+    
+    最少不相交路径覆盖：把原图的每个点V拆成Vx和Vy两个点，如果有一条有向边A->B，那么就加边Ax−>By。这样就得到了一个二分图。那么最小路径覆盖=原图的结点数-新图的最大匹配数。其中每个从Ax->By的匹配代表让A成为原本以B为起点的路径的新起点。
+    
+   	最少可相交路径覆盖：对原图做floyd传递闭包，若A能到达B则建边AB，对新图做最少不相交路径覆盖。
+   	
+   	
 
 
 

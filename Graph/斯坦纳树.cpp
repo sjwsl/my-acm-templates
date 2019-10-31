@@ -49,10 +49,8 @@ void spfa(int s) {
         int now = q.front();
         q.pop();
         vis[now] = false;
-        //	cout<<now<<"--------"<<endl;
         for (int i = head[now]; i != -1; i = Map[i].next)
             if (dp[Map[i].end][s] > dp[now][s] + Map[i].value) {
-                //		cout<<now<<" -> "<<Map[i].end<<endl;
                 dp[Map[i].end][s] = dp[now][s] + Map[i].value;
                 if (vis[Map[i].end] == false) {
                     vis[Map[i].end] = true;
@@ -71,15 +69,9 @@ void dfs2(int cnt, int sum, ll pos)    //起点,数量,和
         ll s = 0;
         for (int i = 1; i <= sum; i++) {
             s += dp[N[cho[i]].i][book[i]];
-            //		cout<<cho[i]<<" "<<book[i]<<" ";
         }
-        //	cout<<endl;
         if (ans > s) {
             ans = s;
-            //			cout<<pos<<endl;
-            //			for (int i=1;i<=sum;i++)
-            //			 	cout<<N[cho[i]].i<<" "<<book[i]<<" "<<dp[N[cho[i]].i][book[i]]<<endl;
-            //			cout<<endl;
         }
         return;
     }
@@ -101,9 +93,7 @@ void dfs1(int cnt, int sum, int pos)        //起点,数量   找sum个点
         for (int i = 1; i <= sum; i++) {
             book[i] = bin[N[cho[i]].be] + bin[N[cho[i]].be ^ 1];
             c += book[i];
-            //		cout<<N[cho[i]].i<<" "<<"="<<book[i]<<" ";
         }
-        //	cout<<endl;
         dfs2(0, sum, c);
         return;
     }
