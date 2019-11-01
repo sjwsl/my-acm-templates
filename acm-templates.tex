@@ -76,6 +76,12 @@ linkcolor=black,CJKbookmarks,
     \subsection{最小割树}
     \inputminted[breaklines]{c++}{Graph/最小割树.cpp}
     
+    \subsection{费用流}
+    \inputminted[breaklines]{c++}{Graph/费用流.cpp}
+    
+     \subsection{zkw费用流}
+    \inputminted[breaklines]{c++}{Graph/zkw费用流.cpp}
+    
     \subsection{网络流的一些结论}
     
     \paragraph{S集}割出的两个点集中和S相连的那个，即为Dinic算法最后增广失败后所有被标号（d不为0）的点
@@ -146,6 +152,7 @@ linkcolor=black,CJKbookmarks,
     
    	最少可相交路径覆盖：对原图做floyd传递闭包，若A能到达B则建边AB，对新图做最少不相交路径覆盖。
    	
+   \paragraph{二分图 最小点覆盖=最大匹配=总点数 - 最大独立集 （带点权同理 但只能用最大流做)}
    	
 
 

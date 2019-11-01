@@ -1,73 +1,60 @@
-/*
-复杂度n^3
-*/
+//最大权完美匹配
+//最大权时把不存在的边当作0 最小权时边权取反 把不存在的边当作-INF
+
+const int maxn = 220;
+const int MAXINT = 1e9 + 7;
+
+int n, cst[maxn + 5][maxn + 5];
+int Lx[maxn + 5], Ly[maxn + 5], MINs[maxn + 5], who[maxn + 5];
+bool S[maxn + 5], T[maxn + 5];
 
 
-
-const int maxn = 305;
-const int INF = 0x3f3f3f3f;
-int match[maxn], lx[maxn], ly[maxn], slack[maxn];
-int G[maxn][maxn];
-bool visx[maxn], visy[maxn];
-int n, nx, ny, ans;
-
-bool findpath(int x) {
-    int tempDelta;
-
-    visx[x] = true;
-    for (int y = 0; y < ny; ++y) {
-        if (visy[y]) continue;
-        tempDelta = lx[x] + ly[y] - G[x][y];
-        if (tempDelta == 0) {//(x,y)在相等子图中
-            visy[y] = true;
-            if (match[y] == -1 || findpath(match[y])) {
-                match[y] = x;
-                return true;
-            }
-        } else if (slack[y] > tempDelta)
-            slack[y] = tempDelta;//(x,y)不在相等子图中且y不在交错树中
-    }
+bool Find(int x) //为x找匹配
+{
+    S[x] = true;
+    for (int i = 1; i <= n; i++)
+        if (!T[i]) {
+            int s = Lx[x] + Ly[i] - cst[x][i];
+            if (!s) //这条边可以走
+            {
+                T[i] = true;
+                if (!who[i] || Find(who[i])) {
+                    who[i] = x;
+                    return true;
+                }
+            } else
+                MINs[i] = min(MINs[i], s); //不可以走，修正松弛量
+        }
     return false;
 }
 
-void KM() {
-
-    for (int x = 0; x < nx; ++x) {
-        for (int j = 0; j < ny; ++j) slack[j] = INF;//这里不要忘了，每次换新的x结点都要初始化slack
-        while (true) {
-            memset(visx, false, sizeof(visx));
-            memset(visy, false, sizeof(visy));//这两个初始化必须放在这里,因此每次findpath()都要更新
-            if (findpath(x)) break;
-            else {
-                int delta = INF;
-                for (int j = 0; j < ny; ++j)//因为dfs(x)失败了所以x一定在交错树中，y不在交错树中，第二类边
-                    if (!visy[j] && delta > slack[j])
-                        delta = slack[j];
-                for (int i = 0; i < nx; ++i)
-                    if (visx[i]) lx[i] -= delta;
-                for (int j = 0; j < ny; ++j) {
-                    if (visy[j])
-                        ly[j] += delta;
-                    else
-                        slack[j] -= delta;
-                    //修改顶标后，要把所有的slack值都减去delta
-                    //这是因为lx[i] 减小了delta
-                    //slack[j] = min(lx[i] + ly[j] -w[i][j]) --j不属于交错树--也需要减少delta，第二类边
-                }
+int KM() {
+    memset(Ly, 0, sizeof(Ly));
+    for (int i = 1; i <= n; i++) Lx[i] = -MAXINT;
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
+            Lx[i] = max(Lx[i], cst[i][j]); //初始可行顶标
+    memset(who, 0, sizeof(who));
+    for (int now = 1; now <= n; now++) //为每一个x找匹配
+    {
+        for (int i = 1; i <= n; i++) MINs[i] = MAXINT;
+        while (true) //直到匹配成功为止
+        {
+            memset(S, 0, sizeof(S));
+            memset(T, 0, sizeof(T));
+            if (Find(now)) break; //匹配成功
+            int MIN = MAXINT;
+            for (int i = 1; i <= n; i++) if (!T[i]) MIN = min(MIN, MINs[i]);
+            //刷出MIN
+            for (int i = 1; i <= n; i++) {
+                if (S[i]) Lx[i] -= MIN; //均减少MIN
+                if (T[i]) Ly[i] += MIN;
+                else //均加上MIN
+                    MINs[i] -= MIN; //由于S[i]=true的Lx[i]都减少MIN了，所以松弛量减少MIN
             }
         }
     }
-}
-
-void solve() {
-
-    memset(match, -1, sizeof(match));
-    memset(ly, 0, sizeof(ly));
-    for (int i = 0; i < nx; ++i) {
-        lx[i] = -INF;
-        for (int j = 0; j < ny; ++j)
-            if (lx[i] < G[i][j])
-                lx[i] = G[i][j];
-    }
-    KM();
+    int ans = 0;
+    for (int i = 1; i <= n; i++) ans += cst[who[i]][i]; //答案
+    return ans;
 }
