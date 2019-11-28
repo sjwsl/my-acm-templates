@@ -10,7 +10,7 @@ struct node {
     }
 };
 
-vector <edge> e[maxn];
+vector <edge> e[N];
 
 void add(int u, int v, int d) {
     e[u].push_back(edge{v, d});
